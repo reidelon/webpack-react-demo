@@ -2,6 +2,10 @@ import React, {Component} from "react";
 import ReactDOM from "react-dom";
 import Data from "./Data";
 import Products from "./products";
+import {Nav} from 'react-bootstrap';
+// import 'bootstrap/dist/css/bootstrap.css';
+// import 'bootstrap/dist/css/bootstrap-theme.css';
+
 
 class Categories extends Component {
     constructor(props) {
@@ -17,7 +21,7 @@ class Categories extends Component {
         console.log(event.target.textContent);
         let category = event.target.textContent;
         let products = [];
-        this.state.categories.forEach((item) =>{
+        this.state.categories.forEach((item) => {
             if (item.category == category && item.hasOwnProperty('name'))
                 products.push(<li key={item.name.toString()}>{item.name}</li>);
         });
@@ -36,17 +40,19 @@ class Categories extends Component {
 
         this.state.categories.forEach((item) => {
             if (item.category !== lastCategory) {
-                rows.push(<li key={item.category.toString()}>
-                    <button onClick={this.handleClickCategory}>{item.category}</button>
-                </li>)
+                rows.push(
+                    <Nav.Link key={item.category.toString()} onClick={this.handleClickCategory}>{item.category}</Nav.Link>
+                )
             }
             lastCategory = item.category;
         });
 
         return (
-            <ul>
-                {rows}
-            </ul>
+            <div>
+                <Nav className="flex-column">
+                    {rows}
+                </Nav>
+            </div>
         );
     }
 
