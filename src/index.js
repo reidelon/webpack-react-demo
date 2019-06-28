@@ -1,1 +1,1 @@
-import FormContainer from "./js/components/container/FormContainer.jsx";
+import Categories from "./js/components/filterTable";
