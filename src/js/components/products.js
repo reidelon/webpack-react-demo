@@ -18,7 +18,7 @@ import ReactDOM from "react-dom";
 
 
 function Products(props) {
-    if (props.products.length != 0) {
+    if (props.products.length !== 0) {
         return (
             <ul>{props.products}</ul>
         );

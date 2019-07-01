@@ -17,8 +17,6 @@ class Categories extends Component {
     }
 
     handleClickCategory(event) {
-        // debugger
-        console.log(event.target.textContent);
         let category = event.target.textContent;
         let products = [];
         this.state.categories.forEach((item) => {
